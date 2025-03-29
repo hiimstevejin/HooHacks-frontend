@@ -1,0 +1,51 @@
+{
+  "rec": [
+    {
+      "cityName": "Seoul",
+      "climate": "Cold winters, mild summers",
+      "exchangeRateUsd": 1.1,
+      "touristSpots": [
+        "Gyeongbokgung Palace",
+        "N Seoul Tower",
+        "Bukchon Hanok Village"
+      ],
+      "reason": "Seoul offers a vibrant city experience with rich culture and history, similar to Chicago but with a unique Asian flair."
+    },
+    {
+      "cityName": "New York City",
+      "climate": "Cold winters, warm summers",
+      "exchangeRateUsd": 1,
+      "touristSpots": ["Statue of Liberty", "Central Park", "Times Square"],
+      "reason": "Like Toronto and Chicago, NYC is a bustling metropolis with countless attractions and diverse experiences."
+    },
+    {
+      "cityName": "Tokyo",
+      "climate": "Mild winters, humid summers",
+      "exchangeRateUsd": 0.009,
+      "touristSpots": ["Shibuya Crossing", "Tokyo Tower", "Meiji Shrine"],
+      "reason": "Tokyo combines modernity and tradition, offering an exciting urban experience with numerous iconic spots."
+    },
+    {
+      "cityName": "Vancouver",
+      "climate": "Mild winters, warm summers",
+      "exchangeRateUsd": 0.75,
+      "touristSpots": [
+        "Stanley Park",
+        "Granville Island",
+        "Capilano Suspension Bridge"
+      ],
+      "reason": "Vancouver has a stunning natural backdrop and a vibrant city life, appealing to those who enjoyed Toronto's urban experience."
+    },
+    {
+      "cityName": "Melbourne",
+      "climate": "Mild winters, warm summers",
+      "exchangeRateUsd": 0.65,
+      "touristSpots": [
+        "Federation Square",
+        "Royal Botanic Gardens",
+        "Queen Victoria Market"
+      ],
+      "reason": "Melbourne is known for its cultural diversity and vibrant arts scene, making it a great choice for city lovers."
+    }
+  ]
+}
