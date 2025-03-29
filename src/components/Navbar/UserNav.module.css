@@ -1,0 +1,42 @@
+.nav {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  padding: 1rem 2rem;
+  backdrop-filter: blur(6px);
+  gap: 1rem;
+}
+
+.navItems {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navItems img {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+
+.navItems h2 {
+  font-size: 1rem;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.navItems button {
+  background-color: #fd666b;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.navItems button:hover {
+  background-color: #e05257;
+}

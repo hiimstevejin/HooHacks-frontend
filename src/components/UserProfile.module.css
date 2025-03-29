@@ -1,0 +1,39 @@
+.profileCard {
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.title {
+  margin-bottom: 10px;
+  font-size: 24px;
+  color: #333;
+}
+
+.email {
+  margin-bottom: 15px;
+  color: #666;
+}
+
+.photo {
+  display: block;
+  margin-bottom: 15px;
+  border-radius: 50%;
+}
+
+.logoutButton {
+  padding: 10px 15px;
+  border: none;
+  background-color: #dc3545;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.logoutButton:hover {
+  background-color: #c82333;
+}
