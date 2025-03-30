@@ -1,0 +1,27 @@
+.background {
+  height: 100vh;
+  background: linear-gradient(
+      rgba(253, 102, 107, 0.7),
+      rgba(252, 252, 252, 0.3)
+    ),
+    url("/homepage-background.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 2.5rem 5rem;
+}
+
+.background section {
+  display: flex;
+  flex-direction: column;
+  height: 85%;
+  gap: 2rem;
+}
+
+.searchInput {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 400px;
+}
