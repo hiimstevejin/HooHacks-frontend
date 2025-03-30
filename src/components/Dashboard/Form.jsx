@@ -4,6 +4,8 @@ import { submitTripData } from "../../services/api";
 import styles from "./Form.module.css";
 import Button from "../Button";
 import BackButton from "../BackButton";
+import { reverseGeocode } from "../../services/geocoding";
+import { useCities } from "../../context/CitiesContext";
 
 export function convertToEmoji(countryCode) {
   const codePoints = countryCode
@@ -16,6 +18,7 @@ export function convertToEmoji(countryCode) {
 function Form() {
   const location = useLocation();
   const navigate = useNavigate();
+  const {fetchCities} = useCities();
 
   // Extract query parameters
   useEffect(() => {
@@ -26,23 +29,35 @@ function Form() {
       setLat(latFromQuery);
       setLng(lngFromQuery);
     }
+    reverseGeocode(latFromQuery,lngFromQuery).then((result)=>{
+      if (result.country) setCountryName(`${result.country}`);
+      if (result.city) setCityName(result.city);
+    })
   }, [location.search]);
 
   // State for lat, lng, cityName, date, and notes
   const [lat, setLat] = useState("");
   const [lng, setLng] = useState("");
+  const [countryName, setCountryName] = useState("");
   const [cityName, setCityName] = useState("");
-  const [date, setDate] = useState(new Date());
+  const [date, setDate] = useState(new Date().toISOString());
   const [notes, setNotes] = useState("");
   const [liked, setLiked] = useState(true);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log({ lat, lng, cityName, date, notes,liked });
-    const formData = { lat, lng, cityName, date, notes, liked };
+    if (!lat || !lng || !countryName.trim() || !cityName.trim() || !date.trim()) {
+      alert(
+        "Please fill in all required fields: city name, date, and coordinates."
+      );
+      return;
+    }
+    console.log({ lat, lng, cityName,countryName, date, notes, liked });
+    const formData = { lat, lng, cityName, countryName, date, notes, liked };
     try {
       const result = await submitTripData(formData);
       console.log("POST successful", result);
+      await fetchCities();
       navigate("/dashboard");
     } catch (error) {
       console.error("Error:", error);
@@ -57,16 +72,30 @@ function Form() {
           id="lat"
           value={lat}
           readOnly
+          required
           // Alternatively, if you want the user to be able to edit it, remove readOnly.
         />
       </div>
-      
+
       <div className={styles.row}>
         <label htmlFor="lng">Longitude</label>
         <input
           id="lng"
           value={lng}
           readOnly
+          required
+          // Alternatively, if you want the user to be able to edit it, remove readOnly.
+        />
+      </div>
+
+      <div className={styles.row}>
+        <label htmlFor="country">Country</label>
+        <input
+          id="country"
+          onChange={(e) => setCountryName(e.target.value)}
+          value={countryName}
+          placeholder="Enter country name"
+          required
           // Alternatively, if you want the user to be able to edit it, remove readOnly.
         />
       </div>
@@ -78,6 +107,7 @@ function Form() {
           onChange={(e) => setCityName(e.target.value)}
           value={cityName}
           placeholder="Enter city name"
+          required
         />
       </div>
 
@@ -91,11 +121,15 @@ function Form() {
       </div>
 
       <div className={styles.row}>
-          <label htmlFor="liked">Enjoyed your trip?</label>
-          <input id="liked" type="checkbox" checked={liked} 
-          onChange={(e)=>setLiked(e.target.checked)}
-          className={styles.thumbCheckbox}/>
-        </div>
+        <label htmlFor="liked">Enjoyed your trip?</label>
+        <input
+          id="liked"
+          type="checkbox"
+          checked={liked}
+          onChange={(e) => setLiked(e.target.checked)}
+          className={styles.thumbCheckbox}
+        />
+      </div>
 
       <div className={styles.row}>
         <label htmlFor="notes">Notes about your trip</label>
@@ -114,6 +148,5 @@ function Form() {
     </form>
   );
 }
-
 
 export default Form;

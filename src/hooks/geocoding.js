@@ -27,7 +27,7 @@ export async function reverseGeocode(lat, lng) {
       city: cityComponent?.long_name || "",
     };
   } catch (error) {
-    console.error("❌ Reverse geocoding error:", error);
+    console.error("Reverse geocoding error:", error);
     return { country: "", countryCode: "", city: "" };
   }
 }

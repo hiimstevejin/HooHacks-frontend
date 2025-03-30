@@ -98,10 +98,13 @@ function WorldMap() {
           onClick={handleMapClick}
           className={styles.map}
         >
-          {cities.map((city) => (
+          {cities.map((city, index) => (
             <AdvancedMarker
-              position={{ lat: city.position.lat, lng: city.position.lng }}
-              key={city.id}
+              position={{
+                lat: parseFloat(city.lat),
+                lng: parseFloat(city.lng),
+              }}
+              key={index}
             >
               <Pin background="red" borderColor="white" glyphColor="purple" />
             </AdvancedMarker>

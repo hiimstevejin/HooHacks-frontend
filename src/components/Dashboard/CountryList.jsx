@@ -16,15 +16,15 @@ function CountryList() {
     );
 
   const countries = cities.reduce((arr, city) => {
-    if (!arr.map((el) => el.country).includes(city.country))
-      return [...arr, { country: city.country, emoji: city.emoji }];
+    if (!arr.map((el) => el.countryName).includes(city.countryName))
+      return [...arr, { country: city.countryName, emoji: city.emoji }];
     else return arr;
   }, []);
 
   return (
     <ul className={styles.countryList}>
-      {countries.map((country) => (
-        <CountryItem country={country} key={country.country} />
+      {countries.map((countryName) => (
+        <CountryItem country={countryName} key={countryName} />
       ))}
     </ul>
   );
