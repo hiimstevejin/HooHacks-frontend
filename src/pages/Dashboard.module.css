@@ -1,0 +1,19 @@
+.dashboard {
+  background: linear-gradient(
+    rgba(253, 102, 107, 0.7),
+    rgba(252, 252, 252, 0.3)
+  );
+  height: 100vh;
+  overscroll-behavior-y: none;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.mainContent {
+  flex: 1;
+  display: flex;
+  gap: 2rem; 
+  overflow: hidden;
+  margin: 2rem; 
+}
