@@ -1,0 +1,98 @@
+.chatBotContainer {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+/* The chat toggle button */
+.chatToggle {
+  background-color: #fd666b;
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease;
+}
+
+.chatToggle:hover {
+  background-color: #e05257;
+}
+
+/* The chat window that unfolds */
+.chatWindow {
+  background-color: #fff;
+  width: 300px;
+  height: 400px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transform-origin: bottom center;
+}
+
+/* Opening animation */
+.opening {
+  animation: unfold 0.3s ease-out forwards;
+}
+
+/* Closing animation */
+.closing {
+  animation: close 0.3s ease-out forwards;
+}
+
+/* Unfold animation */
+@keyframes unfold {
+  from {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+  to {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+@keyframes close {
+  from {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+  to {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+}
+
+.chatHeader {
+  background-color: #fd666b;
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.chatContent {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  font-size: 1.3rem;
+  color: #333;
+}
+
+.chatInput {
+  border: none;
+  border-top: 1px solid #ddd;
+  padding: 1rem;
+  outline: none;
+  border-radius: 10px;
+}
