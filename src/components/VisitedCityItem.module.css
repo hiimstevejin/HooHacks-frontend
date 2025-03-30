@@ -1,0 +1,41 @@
+.visitedCityItem {
+  display: block;
+  padding: 12px;
+  margin-bottom: 10px;
+  background-color: var(--color-dark--1);
+  border: 1px solid var(--color-horny--1);
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--color-light--2);
+  transition: background-color 0.3s ease;
+}
+
+.visitedCityItem:hover {
+  background-color: var(--color-horny--1);
+}
+
+.emoji {
+  font-size: 2rem;
+  margin-right: 8px;
+}
+
+.name {
+  display: inline-block;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.date {
+  display: block;
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+
+.deleteBtn {
+  background-color: transparent;
+  border: none;
+  color: #d32f2f;
+  font-size: 1.2rem;
+  cursor: pointer;
+  float: right;
+}

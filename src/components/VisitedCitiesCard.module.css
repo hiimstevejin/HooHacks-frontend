@@ -1,0 +1,28 @@
+.card {
+  padding: 20px;
+  border-radius: 8px;
+  margin: 20px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: var(--color-dark--1);
+}
+
+.listContainer {
+  max-height: 500px; /* Adjust this height as needed */
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+.listContainer::-webkit-scrollbar{
+  width: 0;
+}
+
+.title {
+  margin-bottom: 15px;
+  font-size: 20px;
+  color: var(--color-light--2);
+}
+
+.noCities {
+  color: #666;
+  font-style: italic;
+}
