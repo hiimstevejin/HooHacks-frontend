@@ -16,14 +16,14 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import Recommendation from "./pages/RecommendationPage";
 
 import { CitiesProvider } from "./context/CitiesContext";
-import { AiProvider } from "./context/AiContext";
+import { AuthProvider } from "./context/AuthContext";
 
 const googleLoginUrl = import.meta.env.VITE_GOOGLE_LOGIN_URL;
 
 export default function App() {
   return (
-    <CitiesProvider>
-      <AiProvider>
+    <AuthProvider>
+      <CitiesProvider>
         <Router>
           <Routes>
             <Route
@@ -63,7 +63,7 @@ export default function App() {
             {/* <Route path="*" element={<PageNotFound />}></Route> */}
           </Routes>
         </Router>
-      </AiProvider>
-    </CitiesProvider>
+      </CitiesProvider>
+    </AuthProvider>
   );
 }
