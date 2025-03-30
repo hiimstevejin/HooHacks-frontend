@@ -1,0 +1,26 @@
+.background {
+  height: 100vh;
+  background: linear-gradient(
+      rgba(253, 102, 107, 0.7),
+      rgba(252, 252, 252, 0.3)
+    ),
+    url("/homepage-background.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 2.5rem 5rem;
+}
+
+.background h1 {
+  color: var(--color-light--2);
+  text-align: center;
+  font-weight: bold;
+  font-size: 5rem;
+}
+
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+}
