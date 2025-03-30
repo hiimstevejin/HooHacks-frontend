@@ -46,6 +46,19 @@ export async function getVisitedCityById(id) {
   }
 }
 
+export async function deleteVisitedCity(id){
+  const response = await fetch(`${BACKEND_URL}/visitedcities/${id}`, {
+    method: "DELETE",
+    credentials: "include", 
+  });
+
+  if (!response.ok) {
+    throw new Error(`Failed to delete city with ID ${id}`);
+  }
+
+  return true;
+}
+
 export async function getAiRecData() {
   const response = await fetch(`${BACKEND_URL}/rec`, {
     method: "GET",

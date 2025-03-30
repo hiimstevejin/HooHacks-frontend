@@ -65,6 +65,10 @@ function CitiesProvider({ children }) {
       setIsLoading(false);
     }
   }
+  
+  function removeCityById(id) {
+    setCities((prevCities) => prevCities.filter((city) => city.id !== id));
+  }
 
   return (
     <CitiesContext.Provider
@@ -74,6 +78,7 @@ function CitiesProvider({ children }) {
         currentCity,
         fetchCities,
         getCity,
+        removeCityById
       }}
     >
       {children}
